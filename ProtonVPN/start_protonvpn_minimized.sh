@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Script was designed for automatically hiding ProtonVPN after it connects
 # Start ProtonVPN
 protonvpn-app &
 # Function to check VPN connection status
