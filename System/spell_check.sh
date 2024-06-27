@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Script for spell checking the last copied clipboard item, copy or cut a word then run the script.
 # Set the desired language for aspell ('sudo apt install aspell')
 # Default language can be set here. Modify this variable to set your preferred language.
 # For example, set it to "fr" for French, "en" for English, or "gd" for Scottish Gaelic.
