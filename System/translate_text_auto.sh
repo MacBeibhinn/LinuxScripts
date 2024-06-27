@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# This script allows you to translate any word or sentence from your current clipboard item, simply cut or copy then run the script
 # Set the default translation to language tag (e.g. fr for French, is for Icelandic, no for Norwegian)
 DEFAULT_TO_LANG="gd"
 # Check if translate-shell is installed (sudo apt install translate-shell)
