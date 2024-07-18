@@ -22,19 +22,18 @@ elif [ "$1" == "delete" ]; then
     else
         echo "Note $2 does not exist."
     fi
-elif [ "$1" == "read" ]; then
-    note_number=$2
-    password=$3
-    if [ -f "$notes_dir/note$note_number.enc" ]; then
-        # Decrypt the encrypted note file with the provided password
-        decrypted_content=$(openssl enc -d -aes-256-cbc -in "$notes_dir/note$note_number.enc" -k "$password" -pbkdf2 2>/dev/null)
-        if [ -n "$decrypted_content" ]; then
-            echo "$decrypted_content"
-        else
-            echo "Incorrect password or unable to decrypt the note."
-        fi
+elif [ "$1" == "read" ] || [[ "$1" =~ ^[0-9]+$ ]]; then
+    note_number=$1
+    if [[ "$1" =~ ^[0-9]+$ ]]; then
+        note_number=$1
     else
-        echo "Note $note_number does not exist or is not password protected."
+        note_number=$2
+    fi
+
+    if [ -f "$notes_dir/note$note_number.txt" ]; then
+        cat "$notes_dir/note$note_number.txt"
+    else
+        echo "Note $note_number does not exist."
     fi
 elif [ "$1" == "insert" ]; then
     note_number=$2
