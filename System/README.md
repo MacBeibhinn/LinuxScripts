@@ -9,5 +9,5 @@ Scripts that can be used system-wide for all sorts of applications.
 
 To run `note.sh` in the terminal without requiring `.sh`, so you can use `./note <new_note>` instead of `./note.sh <new_note>`:
 - Navigate to the directory containing the file.
-- Open in the directory in the terminal (or open the terminal and use `cd PathToDirectory`).
+- Open the directory in the terminal (or open the terminal and use `cd PathToDirectory`).
 - Enter the following commands; `ln -s note.sh note`, `chmod +x note`.
