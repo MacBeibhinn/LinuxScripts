@@ -13,4 +13,4 @@ text=$1
 replace_text=$(replace $text)
 echo "Modified text: $replace_text"
 # Run in the Terminal, ensure the file can be executed as a program:
-# './replace_chars.sh <text>'
+# './replace_chars.sh "this is an example text, remember quotations"'
