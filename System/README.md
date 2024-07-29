@@ -13,3 +13,5 @@ To run `note.sh` in the terminal without requiring `.sh`, so you can use `./note
 - Enter the following commands; `ln -s note.sh note`, `chmod +x note`.
 
 `replace_chars.sh` requires the text to be wrapped in quotations ("example"), else it will fail, single words will work fine but using multiple words without quotations will return the usage example.
+
+`calc.sh` can be used with quotations and spaces (`./calc.sh "2 + 2"`), or without quotations and spaces (`./calc.sh 2+2`).
