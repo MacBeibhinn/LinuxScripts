@@ -12,6 +12,6 @@ To run `note.sh` in the terminal without requiring `.sh`, so you can use `./note
 - Open the directory in the terminal (or open the terminal and use `cd PathToDirectory`).
 - Enter the following commands; `ln -s note.sh note`, `chmod +x note`.
 
-`replace_chars.sh` requires the text to be wrapped in quotations ("example"), else it will fail, single words will work fine but using multiple words without quotations will return the usage example.
+`replace_chars.sh` requires the text to be wrapped in quotations ("example"), else it will fail, single words will work fine but using multiple words without quotations will return the usage example. By default will output lowercase characters, this can be changed by editing the file (see the comments in the file to learn more).
 
 `calc.sh` can be used with quotations and spaces (`./calc.sh "2 + 2"`), or without quotations and spaces (`./calc.sh 2+2`).
