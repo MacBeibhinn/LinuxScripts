@@ -1,5 +1,5 @@
 # LinuxScripts
-Scripts created for carrying out various automated tasks, made using Linux. Adjust to your needs.
+Scripts created for carrying out various automated tasks, made using Linux. Adjust to your needs. Available for requests.
 
 # Requirements
 Ensure all packages being used are installed on your system and all scripts can be executed as a program through their properties settings page, for example `xdotool` is required for most scripts to work but may not be available to you unless installed manually (`sudo apt install xdotool`).
