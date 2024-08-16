@@ -2,7 +2,7 @@
 
 Replaces the Discord client with the web app, while still showing on the system menus and panel etc. Since we use the official Discord web app it loads faster than the client, does not require updates, can be used with browser extensions, and more.
 
-Using the Stylus extension in the browser, we can modify how Discord looks without risking any sort of account ban, since we are not modifying the Discord client, we are just modifying our browser.
+Using the Stylus extension in the browser, we can modify how Discord looks without risking any sort of account ban, since we are not modifying the Discord client, we are just modifying our browser. Keep in mind that even browser extensions could risk you getting banned if they perform actions on your behalf or do things that go against Discord's guidelines and terms of services, for example an extension that bulk sends messages.
 
 # Installation
 
