@@ -8,16 +8,23 @@ Using the Stylus extension in the browser, we can modify how Discord looks witho
 
 - Download the `discord.sh` file to your home directory and grant execution permissions, or run permissions.
 - Open the Terminal and enter the following command: `nano ~/.local/share/applications/discord.desktop`, alternatively you can go to the following folder and create the file yourself: `/home/username/.local/share/applications/`
-- Download a Discord icon (.png), it is better to choose a relatively small image size since it will only be used as an application icon, give the icon a simple name like "discord_icon.png".
+- Download a Discord icon (.png), it is better to choose a relatively small image size since it will only be used as an application icon, give the icon a simple name like "discord_icon.png", you can also download one from this repo if you don't care for searching for one yourself: https://github.com/MacBeibhinn/LinuxScripts/blob/main/Alternative%20Discord/discord_icon.png.
 - Paste the following text inside of the `discord.desktop` file, make any changes you need to such as the location of the icon or script, whatever value you give Name will be what shows up in your menu/applications:
 
 [Desktop Entry]
+
 Version=1.0
+
 Name=Discord
+
 Exec=/home/username/discord.sh
+
 Icon=/home/username/Pictures/discord_icon.png
+
 Terminal=false
+
 Type=Application
+
 Categories=Utility;
 
 - Search within your applications menu for your new app, Discord (if you kept the name), from there you can add it to your panel, launch it, or whatever you like.
