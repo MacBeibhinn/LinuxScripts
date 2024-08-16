@@ -1,8 +1,8 @@
 # Alternative Discord
 
-Replaces the Discord client with the web app, while still showing on the system menus and panel etc. Since we use the official Discord web app it loads faster than the client, does not require updates, can be used with our browser extensions, and more.
+Replaces the Discord client with the web app, while still showing on the system menus and panel etc. Since we use the official Discord web app it loads faster than the client, does not require updates, can be used with browser extensions, and more.
 
-Using the Stylus extension in the browser, we can modify how Discord looks without risking any sort of account ban, since we are not modifying the Discord client, we are modifying our browser.
+Using the Stylus extension in the browser, we can modify how Discord looks without risking any sort of account ban, since we are not modifying the Discord client, we are just modifying our browser.
 
 # Installation
 
