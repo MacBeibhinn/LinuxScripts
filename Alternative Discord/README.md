@@ -21,5 +21,5 @@ Type=Application
 Categories=Utility;
 ```
 - Search within your applications menu for your new app, Discord (if you kept the name), from there you can add it to your panel or favourites (optional).
-- To apply a theme to the Discord web app you can use Stylus (depending on your browser, this example is created using Chromium): https://chromewebstore.google.com/search/Stylus
+- To apply a theme to the Discord web app you can use Stylus (depending on your browser, this example is created using Chromium): https://chromewebstore.google.com/search/Stylus for Chromium based browsers, or https://addons.mozilla.org/en-US/firefox/search/?q=Stylus for Firefox
 - If you like to have Discord start when your system starts, you can add `discord.sh` as a command for a startup application.
