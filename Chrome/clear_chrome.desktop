@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Chrome Browser
+Exec=/home/username/clear_chrome_data.sh
+Icon=google-chrome
+Type=Application
+Terminal=false
