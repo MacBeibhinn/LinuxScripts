@@ -15,3 +15,5 @@ To run `note.sh` in the terminal without requiring `.sh`, so you can use `./note
 `replace_chars.sh` requires the text to be wrapped in quotations ("example"), else it will fail, single words will work fine but using multiple words without quotations will return the usage example. By default will output lowercase characters, this can be changed by editing the file (see the comments in the file to learn more).
 
 `calc.sh` can be used with quotations and spaces (`./calc.sh "2 + 2"`), or without quotations and spaces (`./calc.sh 2+2`).
+
+`open_and_kill.sh` was originally created to allow users to temporarily open the file application Dolphin, select a file and have Dolphin automatically close shortly after no longer needing it to be manually closed. It can be used for anything however, and works well as a keyboard shortcut to a notes folder.
