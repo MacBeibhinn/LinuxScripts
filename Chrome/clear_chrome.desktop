@@ -1,7 +1,22 @@
 [Desktop Entry]
 Version=1.0
 Name=Chrome Browser
+StartupWMClass=Google-chrome
 Exec=/home/username/clear_chrome_data.sh
+StartupNotify=true
+Terminal=false
 Icon=google-chrome
 Type=Application
-Terminal=false
+Categories=Network;WebBrowser;
+MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+StartupWMClass=Google-chrome
+Exec=/home/username/clear_chrome_data.sh
+
+[Desktop Action new-private-window]
+Name=New Incognito Window
+StartupWMClass=Google-chrome
+Exec=/usr/bin/google-chrome-stable --incognito
