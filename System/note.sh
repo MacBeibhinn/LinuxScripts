@@ -8,9 +8,11 @@ if [ ! -d "$notes_dir" ]; then
 fi
 
 if [ "$1" == "edit" ]; then
-    if [ -f "$notes_dir/note$2.txt" ]; then
-        note_text="${@:3}"
-        echo "$note_text" > "$notes_dir/note$2.txt"
+    file="$notes_dir/note$2.txt"
+    if [ -f "$file" ]; then
+        ${EDITOR:-nano} "$file"
+        #note_text="${@:3}"
+        #echo "$note_text" > "$notes_dir/note$2.txt"
         echo "Note $2 edited."
     else
         echo "Note $2 does not exist."
@@ -37,12 +39,18 @@ elif [ "$1" == "read" ] || [[ "$1" =~ ^[0-9]+$ ]]; then
     fi
 elif [ "$1" == "insert" ]; then
     note_number=$2
-    note_text="${@:3}"
-    if [ -f "$notes_dir/note$note_number.txt" ]; then
+    file="$notes_dir/note$note_number.txt"
+    if [ -f "$file" ]; then
         echo "Note $note_number already exists. Use a different number or edit the existing note."
     else
-        echo "$note_text" > "$notes_dir/note$note_number.txt"
-        echo "Note $note_number inserted."
+        : > "$file"
+        ${EDITOR:-nano} "$file"
+        if [ -s "$file" ]; then
+            echo "Note $note_number inserted."
+        else
+            rm -f "$file"
+            echo "Note $note_number not inserted (empty)."
+        fi
     fi
 elif [ "$1" == "copy" ]; then
     if [ -f "$notes_dir/note$2.txt" ]; then
@@ -60,8 +68,15 @@ elif [ "$1" == "deleteall" ]; then
         echo "Deletion canceled."
     fi
 elif [ "$1" == "ls" ]; then
-    note_count=$(ls -l "$notes_dir" | grep -c '^-' )
+    note_count=$(find "$notes_dir" -maxdepth 1 -type f | wc -l)
     echo "Total number of notes: $note_count"
+    if [ "$note_count" -eq 0 ]; then
+        echo "No notes found."
+    else
+        echo "Notes:"
+        find "$notes_dir" -maxdepth 1 -type f -printf "%f\n" | sort \
+        | sed -E 's/^note//; s/\.txt$//'
+    fi
 elif [ "$1" == "open" ]; then
     nohup xdg-open "$notes_dir" >/dev/null 2>&1 &
     echo "Notes folder opened."
@@ -93,12 +108,12 @@ elif [ "$1" == "decrypt" ]; then
     else
         echo "Encrypted note $note_number does not exist."
     fi
-elif [ "$1" == "help" ] || [ -z "$1" ]; then
+elif [ "$1" == "help" ]; then # elif [ "$1" == "help" ] || [ -z "$1" ]; then
     echo "Available commands:"
-    echo "./note.sh edit <note_number> <note_text> - Edit a note"
+    echo "./note.sh edit <note_number> - Edit a note"
     echo "./note.sh delete <note_number> - Delete a note"
     echo "./note.sh read <note_number> <password> - Read a password-protected note"
-    echo "./note.sh insert <note_number> <new_note> - Insert a new note with a specific number"
+    echo "./note.sh insert <note_number> - Insert a new note with a specific number"
     echo "./note.sh copy <note_number> - Copy the content of a note to clipboard"
     echo "./note.sh deleteall - Delete all notes in the folder"
     echo "./note.sh ls - List the total amount of notes/files"
@@ -106,13 +121,28 @@ elif [ "$1" == "help" ] || [ -z "$1" ]; then
     echo "./note.sh pw <note_number> <password> - Encrypt and password protect a note file"
     echo "./note.sh decrypt <note_number> <password> - Decrypt a password-protected note file"
     echo "./note.sh help - Display available commands"
-    echo "./note.sh <new_note> - Add a new note"
+    echo "./note.sh - Add a new note"
 else
-    note_text="${@}"
     note_number=1
     while [ -f "$notes_dir/note$note_number.txt" ]; do
         note_number=$((note_number + 1))
     done
-    echo "$note_text" > "$notes_dir/note$note_number.txt"
-    echo "Note $note_number saved."
+    file="$notes_dir/note$note_number.txt"
+    : > "$file"
+    ${EDITOR:-nano} "$file"
+    if [ -s "$file" ]; then
+        echo "Note $note_number saved."
+    else
+        rm -f "$file"
+        echo "Note $note_number not saved (empty)."
+    fi
 fi
+#else
+#    note_text="${@}"
+#    note_number=1
+#    while [ -f "$notes_dir/note$note_number.txt" ]; do
+#        note_number=$((note_number + 1))
+#    done
+#    echo "$note_text" > "$notes_dir/note$note_number.txt"
+#    echo "Note $note_number saved."
+#fi
